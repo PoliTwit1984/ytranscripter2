@@ -1,0 +1,158 @@
+{
+  "id": "/subscriptions/e6a9e81d-e4f2-4c27-875b-b0d4586e6c8b/resourceGroups/my-container-app4/providers/Microsoft.App/containerapps/my-container-app4",
+  "identity": {
+    "type": "None"
+  },
+  "location": "East US",
+  "name": "my-container-app4",
+  "properties": {
+    "configuration": {
+      "activeRevisionsMode": "Single",
+      "dapr": null,
+      "ingress": {
+        "additionalPortMappings": null,
+        "allowInsecure": false,
+        "clientCertificateMode": null,
+        "corsPolicy": null,
+        "customDomains": null,
+        "exposedPort": 0,
+        "external": true,
+        "fqdn": "my-container-app4.calmfield-16c0a4fe.eastus.azurecontainerapps.io",
+        "ipSecurityRestrictions": null,
+        "stickySessions": null,
+        "targetPort": 5001,
+        "traffic": [
+          {
+            "latestRevision": true,
+            "weight": 100
+          }
+        ],
+        "transport": "Auto"
+      },
+      "maxInactiveRevisions": 100,
+      "registries": [
+        {
+          "identity": "",
+          "passwordSecretRef": "ca517dc28dc9acrazurecrio-ca517dc28dc9acr",
+          "server": "ca517dc28dc9acr.azurecr.io",
+          "username": "ca517dc28dc9acr"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "ca517dc28dc9acrazurecrio-ca517dc28dc9acr"
+        }
+      ],
+      "service": null
+    },
+    "customDomainVerificationId": "443E235972953F3D333C493A01008471B8CCFC00E40B3E3D214941C4C932B0D4",
+    "delegatedIdentities": [],
+    "environmentId": "/subscriptions/e6a9e81d-e4f2-4c27-875b-b0d4586e6c8b/resourceGroups/my-container-app4/providers/Microsoft.App/managedEnvironments/my-container-app4",
+    "eventStreamEndpoint": "https://eastus.azurecontainerapps.dev/subscriptions/e6a9e81d-e4f2-4c27-875b-b0d4586e6c8b/resourceGroups/my-container-app4/containerApps/my-container-app4/eventstream",
+    "latestReadyRevisionName": "my-container-app4--ognbq73",
+    "latestRevisionFqdn": "my-container-app4--ognbq73.calmfield-16c0a4fe.eastus.azurecontainerapps.io",
+    "latestRevisionName": "my-container-app4--ognbq73",
+    "managedEnvironmentId": "/subscriptions/e6a9e81d-e4f2-4c27-875b-b0d4586e6c8b/resourceGroups/my-container-app4/providers/Microsoft.App/managedEnvironments/my-container-app4",
+    "outboundIpAddresses": [
+      "20.231.246.122",
+      "20.231.246.54",
+      "20.231.247.19",
+      "20.231.246.253",
+      "20.241.227.6",
+      "20.241.226.169",
+      "20.127.248.50",
+      "20.241.171.30",
+      "20.241.172.248",
+      "20.241.172.250",
+      "20.246.203.138",
+      "20.246.203.140",
+      "52.191.22.226",
+      "52.191.22.23",
+      "52.191.22.71",
+      "52.191.22.159",
+      "52.191.22.166",
+      "52.191.22.212",
+      "52.191.22.41",
+      "52.191.23.0",
+      "52.191.22.198",
+      "52.191.22.121",
+      "20.124.73.117",
+      "52.149.247.118",
+      "52.149.245.39",
+      "52.149.247.189",
+      "52.149.247.220",
+      "52.149.247.221",
+      "52.149.245.38",
+      "52.149.244.111",
+      "52.224.88.179",
+      "52.149.247.199",
+      "52.149.244.160",
+      "4.156.169.214",
+      "51.8.244.245",
+      "51.8.245.98",
+      "51.8.244.244",
+      "51.8.245.50",
+      "51.8.245.71",
+      "51.8.245.15",
+      "51.8.245.135",
+      "51.8.245.134",
+      "51.8.245.14",
+      "51.8.244.211",
+      "4.156.169.175",
+      "4.156.169.143",
+      "20.241.173.137",
+      "20.241.173.98",
+      "20.242.228.13",
+      "20.242.227.204",
+      "20.242.227.238",
+      "20.242.228.93",
+      "52.226.103.51",
+      "52.226.103.36",
+      "52.226.103.82",
+      "52.226.103.10",
+      "52.226.102.213",
+      "52.226.102.151",
+      "52.226.102.243",
+      "52.226.103.40",
+      "52.226.102.224",
+      "52.226.102.162",
+      "52.191.92.72"
+    ],
+    "provisioningState": "Succeeded",
+    "runningStatus": "Running",
+    "template": {
+      "containers": [
+        {
+          "image": "ca517dc28dc9acr.azurecr.io/my-container-app4:20240816182630512959",
+          "name": "my-container-app4",
+          "resources": {
+            "cpu": 0.5,
+            "ephemeralStorage": "2Gi",
+            "memory": "1Gi"
+          }
+        }
+      ],
+      "initContainers": null,
+      "revisionSuffix": "",
+      "scale": {
+        "maxReplicas": 10,
+        "minReplicas": null,
+        "rules": null
+      },
+      "serviceBinds": null,
+      "terminationGracePeriodSeconds": null,
+      "volumes": null
+    },
+    "workloadProfileName": "Consumption"
+  },
+  "resourceGroup": "my-container-app4",
+  "systemData": {
+    "createdAt": "2024-08-16T23:27:23.4577996",
+    "createdBy": "joe.wilson@live.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2024-08-16T23:27:23.4577996",
+    "lastModifiedBy": "joe.wilson@live.com",
+    "lastModifiedByType": "User"
+  },
+  "type": "Microsoft.App/containerApps"
+}

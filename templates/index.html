@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT Transcriber AI: Multi-Model Summaries</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+    <!-- Include Quill CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- Add the logo here -->
+            <img src="{{ url_for('static', filename='ytlogo.png') }}" alt="YouTube Logo" class="logo">
+            <h1>YT Transcriber AI: Multi-Model Summaries</h1>
+        </div>
+
+        {% if title and channel_title and video_url %}
+        <div class="video-details">
+            <h2>{{ title }}</h2>
+            <p>by <strong>{{ channel_title }}</strong></p>
+            <a href="{{ video_url }}" target="_blank">Watch Video on YouTube</a>
+        </div>
+        {% endif %}
+
+        <div class="video-section">
+            <div class="video-placeholder">
+                <img src="{{ url_for('static', filename='play-button.png') }}" alt="Play Button">
+                <img src="{{ url_for('static', filename='youtube-icon.png') }}" alt="YouTube Icon">
+            </div>
+            <p>Summarize any YouTube video with multiple AI models</p>
+            <form id="transcribe-form" method="post">
+                <input type="text" name="youtube_url" placeholder="Enter YouTube Video URL" required>
+                <button type="submit">Transcribe & Summarize</button>
+            </form>
+        </div>
+
+        <div id="loading-message" class="loading" style="display: none;">
+            <p>Processing... Please wait while we transcribe and summarize the video.</p>
+        </div>
+
+        {% if summaries %}
+        <div class="summaries">
+            <h2>Summaries from Multiple AI Models</h2>
+            <div id="editor-container">
+                <!-- Quill editor will be loaded here -->
+            </div>
+            <button id="save-button">Save Summary</button>
+        </div>
+        {% elif error %}
+        <div class="error">
+            <p>Error: {{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Include Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        var quill = new Quill('#editor-container', {
+            theme: 'snow'  // Specify theme in configuration
+        });
+
+        // Load the summary into the editor
+        {% if summaries %}
+            var summaryContent = `
+                {% for model, summary in summaries.items() %}
+                    <h3>{{ model }}</h3>
+                    <p>{{ summary }}</p>
+                {% endfor %}
+            `;
+            quill.root.innerHTML = summaryContent;
+        {% endif %}
+
+        // Handle save button click
+        document.getElementById('save-button').addEventListener('click', function() {
+            var content = quill.root.innerHTML;
+            console.log("Summary content saved:", content);
+            // You can implement an AJAX call here to save the content to the server
+        });
+    </script>
+</body>
+</html>
